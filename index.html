@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Astro Investment client consultation registration portal">
+  <title>Astro Investment | Consultation</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <img src="astro-investment-logo.png" alt="Astro Investment" class="logo">
+    <div>
+      <p class="eyebrow">Traditional perspective. Modern financial awareness.</p>
+      <h1>Consultation Registration</h1>
+      <p class="intro">Share the information needed for an astrology-based financial awareness consultation. Your information is used only to prepare and deliver your consultation.</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="tabs" role="tablist" aria-label="Consultation type">
+      <button class="tab active" type="button" data-type="new">New client</button>
+      <button class="tab" type="button" data-type="repeat">Next consultation</button>
+    </div>
+
+    <form id="consultationForm">
+      <input type="hidden" name="consultationType" id="consultationType" value="New Client">
+      <input type="hidden" name="clientId" id="clientId">
+
+      <section class="card repeat-only" hidden>
+        <div class="section-title"><span>01</span><div><h2>Existing client</h2><p>Use the Client ID shown in your earlier confirmation email.</p></div></div>
+        <div class="grid two">
+          <label>Existing Client ID <b>*</b><input id="existingClientId" name="existingClientId" placeholder="ASTRO-INVESTOR-..." autocomplete="off"></label>
+          <label>Registered email <b>*</b><input id="existingEmail" name="existingEmail" type="email" autocomplete="email"></label>
+        </div>
+      </section>
+
+      <section class="card new-only">
+        <div class="section-title"><span>01</span><div><h2>Personal details</h2><p>Essential information for identifying and contacting you.</p></div></div>
+        <div class="grid two">
+          <label>Full name <b>*</b><input name="fullName" required autocomplete="name"></label>
+          <label>Email address <b>*</b><input name="email" type="email" required autocomplete="email"></label>
+          <label>Mobile number <b>*</b><input name="mobile" type="tel" required inputmode="tel" autocomplete="tel"></label>
+          <label>Gender <select name="gender"><option value="">Select</option><option>Male</option><option>Female</option><option>Non-binary</option><option>Prefer not to say</option></select></label>
+          <label>Marital status <select name="maritalStatus"><option value="">Select</option><option>Single</option><option>Married</option><option>Separated</option><option>Divorced</option><option>Widowed</option><option>Prefer not to say</option></select></label>
+          <label>Preferred language <select name="language"><option>English</option><option>Hindi</option><option>Assamese</option><option>Bengali</option><option>Other</option></select></label>
+        </div>
+      </section>
+
+      <section class="card new-only">
+        <div class="section-title"><span>02</span><div><h2>Birth details</h2><p>Please enter the most accurate information available.</p></div></div>
+        <div class="grid two">
+          <label>Date of birth <b>*</b><input name="dateOfBirth" type="date" required></label>
+          <label>Time of birth <b>*</b><input name="timeOfBirth" type="time" required></label>
+          <label>Birth-time accuracy <select name="birthTimeAccuracy"><option>Exact—birth record</option><option>Remembered by family</option><option>Approximate</option><option>Unknown</option></select></label>
+          <label>Birthplace—city/village <b>*</b><input name="birthPlace" required></label>
+          <label>District <input name="birthDistrict"></label>
+          <label>State <input name="birthState"></label>
+          <label>Country <input name="birthCountry" value="India"></label>
+          <label>Present city <input name="presentCity"></label>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="section-title"><span class="new-number">03</span><div><h2>Financial profile</h2><p>Choose broad ranges only. Never provide bank, card, demat, PAN, Aadhaar, password or OTP details.</p></div></div>
+        <div class="grid two">
+          <label>Employment category <select name="employment"><option value="">Select</option><option>Salaried—government/PSU</option><option>Salaried—private sector</option><option>Business owner</option><option>Self-employed professional</option><option>Freelancer</option><option>Farmer</option><option>Retired</option><option>Student</option><option>Homemaker</option><option>Not presently employed</option><option>Other</option></select></label>
+          <label>Annual income range <select name="annualIncome"><option value="">Select</option><option>Below ₹3 lakh</option><option>₹3–5 lakh</option><option>₹5–10 lakh</option><option>₹10–25 lakh</option><option>₹25–50 lakh</option><option>₹50 lakh–₹1 crore</option><option>Above ₹1 crore</option><option>Prefer not to say</option></select></label>
+          <label>Primary income source <select name="primaryIncome"><option value="">Select</option><option>Salary</option><option>Business income</option><option>Professional income</option><option>Agriculture</option><option>Rent</option><option>Pension</option><option>Interest/dividends</option><option>Capital gains</option><option>Family support</option><option>Multiple sources</option><option>Other</option></select></label>
+          <label>Monthly investment capacity <select name="monthlyCapacity"><option value="">Select</option><option>Below ₹2,500</option><option>₹2,500–₹5,000</option><option>₹5,000–₹10,000</option><option>₹10,000–₹25,000</option><option>₹25,000–₹50,000</option><option>₹50,000–₹1 lakh</option><option>Above ₹1 lakh</option><option>Not decided</option></select></label>
+          <label>Investment experience <select name="experience"><option>Beginner—less than 1 year</option><option>1–3 years</option><option>3–5 years</option><option>More than 5 years</option><option>No previous investments</option></select></label>
+          <label>Preferred investment period <select name="horizon"><option>Less than 1 year</option><option>1–3 years</option><option>3–5 years</option><option>5–10 years</option><option>More than 10 years</option><option>Not sure</option></select></label>
+          <label>Risk comfort <select name="risk"><option>Low—capital safety is most important</option><option>Moderate—some fluctuation is acceptable</option><option>High—large fluctuations are acceptable</option><option>Not sure</option></select></label>
+          <label>Existing liabilities <select name="liabilities"><option>None</option><option>Below ₹5 lakh</option><option>₹5–15 lakh</option><option>₹15–50 lakh</option><option>Above ₹50 lakh</option><option>Prefer not to say</option></select></label>
+        </div>
+        <fieldset><legend>Current investment areas</legend><div class="checks">
+          <label><input type="checkbox" name="investmentAreas" value="Bank deposits"> Bank deposits</label><label><input type="checkbox" name="investmentAreas" value="Post office/small savings"> Post office/small savings</label><label><input type="checkbox" name="investmentAreas" value="Mutual funds"> Mutual funds</label><label><input type="checkbox" name="investmentAreas" value="Direct equity"> Direct equity</label><label><input type="checkbox" name="investmentAreas" value="Bonds/debentures"> Bonds/debentures</label><label><input type="checkbox" name="investmentAreas" value="Gold"> Gold</label><label><input type="checkbox" name="investmentAreas" value="Real estate"> Real estate</label><label><input type="checkbox" name="investmentAreas" value="Insurance products"> Insurance products</label><label><input type="checkbox" name="investmentAreas" value="Pension/NPS/EPF"> Pension/NPS/EPF</label><label><input type="checkbox" name="investmentAreas" value="Crypto assets"> Crypto assets</label><label><input type="checkbox" name="investmentAreas" value="None"> None</label><label><input type="checkbox" name="investmentAreas" value="Other"> Other</label>
+        </div></fieldset>
+        <fieldset><legend>Primary financial goals</legend><div class="checks">
+          <label><input type="checkbox" name="financialGoals" value="Wealth creation"> Wealth creation</label><label><input type="checkbox" name="financialGoals" value="Regular income"> Regular income</label><label><input type="checkbox" name="financialGoals" value="Retirement"> Retirement</label><label><input type="checkbox" name="financialGoals" value="Home purchase"> Home purchase</label><label><input type="checkbox" name="financialGoals" value="Education"> Education</label><label><input type="checkbox" name="financialGoals" value="Business growth"> Business growth</label><label><input type="checkbox" name="financialGoals" value="Debt reduction"> Debt reduction</label><label><input type="checkbox" name="financialGoals" value="Emergency fund"> Emergency fund</label><label><input type="checkbox" name="financialGoals" value="Other"> Other</label>
+        </div></fieldset>
+      </section>
+
+      <section class="card">
+        <div class="section-title"><span class="new-number">04</span><div><h2>Consultation request</h2><p>Tell us what you would like the consultation to address.</p></div></div>
+        <label>Primary area <select name="consultationArea" required><option value="">Select</option><option>Financial planning awareness</option><option>Career and income outlook</option><option>Business prospects</option><option>Investment timing perspective</option><option>Savings and wealth discipline</option><option>Property-related perspective</option><option>General astrological consultation</option><option>Follow-up on earlier consultation</option><option>Other</option></select></label>
+        <label>Your question <b>*</b><textarea name="question" rows="5" required maxlength="1500" placeholder="Describe your question without sharing confidential account information."></textarea></label>
+      </section>
+
+      <section class="card payment-card">
+        <div class="section-title">
+          <span class="new-number">05</span>
+          <div><h2>Consultation fee</h2><p>Pay ₹500 using any UPI application</p></div>
+        </div>
+        <div class="payment-row">
+          <img src="AstroInvestment-UPI-QR.png" alt="₹500 Astro Investment UPI payment QR code" width="180" height="180">
+          <div>
+            <strong>Scan and pay ₹500</strong>
+            <small>Use Google Pay, PhonePe, Paytm, BHIM or another UPI app.</small>
+            <small>UPI ID: prasanta890@federal</small>
+            <small>Verify the recipient's bank-registered name before paying.</small>
+          </div>
+          <button type="button" id="payButton" disabled>Pay ₹500 through UPI</button>
+        </div>
+        <div class="grid two">
+          <label>Payment status
+            <select name="paymentStatus" id="paymentStatus">
+              <option value="Payment pending">Payment pending</option>
+              <option value="Paid—pending verification">Paid—pending verification</option>
+            </select>
+          </label>
+          <label>Transaction/UTR number
+            <input name="transactionId" id="transactionId" placeholder="Enter after completing payment" autocomplete="off">
+          </label>
+        </div>
+        <p>Payment is verified manually. Enter the correct UPI transaction/reference number after payment.</p>
+      </section>
+
+      <section class="consent">
+        <label><input type="checkbox" name="consentData" required> I consent to Astro Investment collecting and using these details to process and deliver my consultation. <b>*</b></label>
+        <label><input type="checkbox" name="consentDisclaimer" required> I understand that astrology is a traditional belief-based practice and that this service does not guarantee financial results or replace advice from a SEBI-registered professional. <b>*</b></label>
+        <label><input type="checkbox" name="consentAccuracy" required> I confirm that the information supplied is accurate and contains no passwords, OTPs or confidential account credentials. <b>*</b></label>
+      </section>
+
+      <div id="formMessage" class="message" aria-live="polite"></div>
+      <button class="submit" type="submit">Submit consultation request</button>
+    </form>
+  </main>
+
+  <footer><p>© <span id="year"></span> Astro Investment</p><p>Educational and belief-based consultation only. Investments are subject to market risks.</p></footer>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
